@@ -1,0 +1,14 @@
+{
+  "name": "tsreact",
+  "version": false,
+  "dependencies": {},
+  "globalDependencies": {
+    "classnames": "registry:dt/classnames#0.0.0+20160316155526",
+    "es6-promise": "registry:dt/es6-promise#0.0.0+20160423074304",
+    "isomorphic-fetch": "registry:dt/isomorphic-fetch#0.0.0+20160505171433",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160505161446",
+    "node": "registry:dt/node#4.0.0+20160501135006",
+    "react": "registry:dt/react#0.14.0+20160423065914",
+    "react-dom": "registry:dt/react-dom#0.14.0+20160412154040"
+  }
+}

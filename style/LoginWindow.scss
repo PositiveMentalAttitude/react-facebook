@@ -1,0 +1,125 @@
+.cover-area {
+    background-color: rgba(0, 0, 0, 0.3);
+    animation: fadein 300ms ease-in;
+    
+    @keyframes fadein {
+        from { opacity: 0;}
+        to   { opacity: 1;} 
+    }
+    
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    .main-area{
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        left: 40.3%;
+        top: 20%;
+        width: 340px;
+        height: 460px;
+    
+
+    .login-window {
+        order: 1;
+        flex-grow: 12;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        border-radius: 5px;
+        background-color: deepskyblue;
+        .title-name {
+            flex-grow: 1;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .user-infor {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+
+            .user-name {
+                flex-grow: 1;
+            }
+
+            .user-password {
+                flex-grow: 1;
+            }
+        }
+
+        .login-options{
+            flex-grow: 1;
+            display: flex;
+            flex-direction: row;
+
+            .fb-login {
+                width: 50%;
+                text-align: center;
+                align-items: center;
+                border-right: solid 1px black;
+            }
+
+            .create-account-button{
+                width: 50%;
+                text-align: center;
+            }
+        }
+    }
+    }
+
+    .create-account {
+        display: flex;
+        flex-direction: column;
+        width: 340px;
+        order: 2;
+        flex-grow: 11;
+        align-items: center;
+        opacity: 0;
+
+        .user-input-info {
+            order: 1;
+            flex-grow: 3;
+            display: flex;
+            justify-content: space-around;
+            flex-direction: column;
+
+            .user-input {
+            width: 335px;
+            border-radius: 5px;
+        }
+
+        .user-email {
+            order: 1;
+            flex-grow: 1;
+        }
+
+        .user-password {
+            order: 2;
+            flex-grow: 1;
+        }
+
+        .user-password-confirm {
+            order: 3;
+            flex-grow: 1;
+        }
+        }
+
+        .register-button {
+            width: 100%;
+            border-radius: 10px;
+            order: 2;
+            flex-grow: 1;
+
+            &:active {
+                background-color: red;
+            }
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+.message-generator {
+    width: 100%;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+
+    .message-generator-left {
+        order: 1;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .message-content-left {
+            text-align: left;
+            font-size: 15px;
+            border-radius: 10px;
+        }
+
+        .message-time-display-left {
+            width: 100%;
+            text-decoration: gray;
+            text-align: left;
+        }
+    }
+
+    .message-generator-right {
+        order: 2;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .message-content-right {
+            @extend .message-content-left;
+            text-align: right;
+        }
+
+        .message-time-display-right {
+            @extend .message-time-display-left;
+            text-align: right;
+        }
+    }
+}

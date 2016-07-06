@@ -1,0 +1,33 @@
+{
+  "name": "facebook-login-example",
+  "version": "1.0.0",
+  "description": "create a facebook log-in example",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --hot",
+    "build": "webpack"
+  },
+  "author": "tuan",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "flux": "^2.1.1",
+    "keymirror": "^0.1.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.4.1",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1",
+    "whatwg-fetch": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel": "^6.5.2",
+    "css-loader": "^0.23.1",
+    "node-sass": "^3.7.0",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1"
+  }
+}

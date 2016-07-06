@@ -1,0 +1,93 @@
+.login-cover-area {
+    background-color: black;
+    opacity: 0.4;
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+
+    .login-popup{
+        display: flex;
+        position: absolute;
+        flex-direction: column;
+        top: 20%;
+        left: 40.3%;
+        width: 300px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+        .user-email {
+            width: 100%;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 5px;
+            background-color: ghostwhite;
+            height: 45px;
+            margin-bottom: 5px;
+        }
+
+        .user-password {
+            @extend .user-email;
+        }
+
+        .handle-login-request {
+            @extend .user-email;
+            display: flex;
+            flex-direction: row;
+
+            .login-button {
+                flex-grow: 1;
+                &:hover {
+                    cursor: pointer;
+                    box-shadow: 0 0 3px black, 0 0 5px lawngreen;
+                }
+            }
+
+            .login-problem {
+                @extend .login-button;
+            }
+        }
+
+        .login-with-facebook {
+            @extend .user-email;
+            text-align: center;
+            font-weight: bold;
+            color: snow;
+            background-color: dodgerblue;
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0 0 3px black, 0 0 5px dodgerblue;
+            }
+        }
+
+        .login-with-google {
+            @extend .user-email;
+            font-weight: bold;
+            color: snow;
+            background-color: orangered;
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0 0 3px black, 0 0 5px orangered;
+            }
+        }
+
+        .create-new-accout {
+            @extend .user-email;
+        }
+    }
+
+    .alert-toast {
+        margin-left: auto;
+        margin-right: auto;
+        background-color: black;
+        opacity: 0.5;
+        color: whitesmoke;
+        font-size: 15px;
+        max-width: 340px;
+    }
+}
