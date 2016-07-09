@@ -20354,26 +20354,57 @@
 	var ChatApp = (function (_super) {
 	    __extends(ChatApp, _super);
 	    function ChatApp() {
-	        var _this = this;
 	        _super.call(this);
 	        this.inputChatName = null;
 	        this.textArea = null;
 	        this.socket = null;
-	        this.openSocket = function () {
-	            try {
-	                _this.socket = window["io"].connect('http://127.0.0.1:9000');
-	            }
-	            catch (error) {
-	                console.log(error.ToString());
-	            }
-	            if (_this.socket !== undefined) {
-	                console.log("OK");
-	            }
-	        };
+	        this.chatStatus = null;
+	        this.statusDefault = null;
 	    }
+	    ChatApp.prototype.componentWillMount = function () {
+	        try {
+	            this.socket = window["io"].connect('http://127.0.0.1:9000');
+	        }
+	        catch (error) {
+	            console.log(error.ToString());
+	        }
+	    };
+	    ChatApp.prototype.componentDidMount = function () {
+	        var _this = this;
+	        if (this.socket !== undefined) {
+	            console.log("OK !!!");
+	        }
+	        this.statusDefault = this.chatStatus.textContent;
+	        this.socket.on('status', function (data) {
+	            _this.setStatus((typeof (data) === 'object') ? data.message : data);
+	            if (data.clear === true) {
+	                _this.textArea.value = '';
+	            }
+	        });
+	    };
+	    ChatApp.prototype.setStatus = function (s) {
+	        var _this = this;
+	        this.chatStatus.textContent = s;
+	        if (s !== this.statusDefault) {
+	            var delay = setTimeout(function () {
+	                _this.setStatus(_this.statusDefault);
+	                clearInterval(delay);
+	            }, 3000);
+	        }
+	    };
+	    ChatApp.prototype.handleEnterKeyDown = function (e) {
+	        if (e.which === 13 && e.shiftKey === false) {
+	            this.socket.emit('input', {
+	                name: this.inputChatName.value,
+	                message: this.textArea.value
+	            });
+	            console.log("TA DA");
+	            e.preventDefault();
+	        }
+	    };
 	    ChatApp.prototype.render = function () {
 	        var _this = this;
-	        return (React.createElement("div", {className: "chat-app"}, React.createElement("input", {type: "text", className: "chat-name", placeholder: "Enter your name", ref: function (r) { return _this.inputChatName = r; }}), React.createElement("div", {className: "chat-messages"}, React.createElement("div", {className: "chat-message"}, "Hello!"), React.createElement("div", {className: "chat-message"}, "Hello there!")), React.createElement("textarea", {placeholder: "Type your message", className: "chat-textarea", ref: function (r) { return _this.textArea; }}), React.createElement("div", {className: "chat-status"}, "Status: ", React.createElement("span", null, "Idle"))));
+	        return (React.createElement("div", {className: "chat-app"}, React.createElement("input", {type: "text", className: "chat-name", placeholder: "Enter your name", ref: function (r) { return _this.inputChatName = r; }}), React.createElement("div", {className: "chat-messages"}, React.createElement("div", {className: "chat-message"}, "Hello!"), React.createElement("div", {className: "chat-message"}, "Hello there!")), React.createElement("textarea", {placeholder: "Type your message", className: "chat-textarea", ref: function (r) { return _this.textArea = r; }, onKeyDown: function (e) { return _this.handleEnterKeyDown(e); }}), React.createElement("div", {className: "chat-status"}, "Status: ", React.createElement("span", {ref: function (r) { return _this.chatStatus = r; }}, "Idle"))));
 	    };
 	    return ChatApp;
 	}(React.Component));
